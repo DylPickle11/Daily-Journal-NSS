@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/journal.css">
+</head>
+
+<body>
+
+  <!--Header Section -->
+  <header class="header">
+    <h1>Daily Journal</h1>
+  </header>
+
+  <!-- Date and Concept covered link-->
+  <form action="">
+    <div class="date">
+      <label for="journalDate">Date:</label>
+      <input type="date" name="journalDate" id="journalDate">
+    </div>
+
+    <div class="concept">
+      <label for="journalConcepts">Title:</label>
+      <input type="text" name="concepts" id="journalConcepts">
+    </div>
+    <h2 class="journalEntry">Journal Entry</h2>
+    <div class="form_journalEntry">
+      <label for="journalEntry"></label>
+      <textarea placeholder="Tell me about your day..." name="message" id="journalEntry" rows="20" cols="80"></textarea>
+    </div>
+
+    <div>
+      <label class="mood" for="mood">Mood</label>
+      <select class="mood" name="mood" id="journalMood">
+        <option value="">Blissful</option>
+        <option value="">Cheerful</option>
+        <option value="">Excited</option>
+        <option value="">Mellow</option>
+        <option value="">Loving</option>
+        <option value="">Energetic</option>
+        <option value="">Peaceful</option>
+        <option value="">Silly</option>
+        <option value="">Sympathetic</option>
+        <option value="">Angry</option>
+        <option value="">Annoyed</option>
+        <option value="">Apathetic</option>
+        <option value="">Cranky</option>
+        <option value="">Guilty</option>
+        <option value="">Melancholy</option>
+        <option value="">Rejected</option>
+        <option value="">Restless</option>
+        <option value="">Sad</option>
+        <option value="">Weird</option>
+      </select>
+    </div>
+    
+    <button class="button" type="button" name="button" id="button">Record Journal Entry</button>
+    
+  </form>
+  <script rel="javascript" src="scripts/journal.js"></script>
+</body>
+
+</html>
