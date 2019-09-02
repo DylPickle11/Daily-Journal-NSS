@@ -3,28 +3,49 @@
     represents a journal entry about what you learned today
 */
 
-const journalEntry = {
+const journalEntries = [
+  {
     date: "08/19/2019",
-    title: "Monday NoFunday",
+    concept: "Monday NoFunday",
     entry:"fsjdhfskdhfdskfhsdjkhfdskjhfdskjfhsdkfjshfdsjkfh",
-    mood: "sad"}
-    
-const journalEntry2 = {
+    mood: "sad" 
+  },
+  {
     date: "08/20/2019",
-    title: "Tuesday Chooseday",
+    concept: "Tuesday Chooseday",
     entry:"fsjdhfskdhfdskfhsdjkhfdskjhfdskjfhsdkfjshfdsjkfh",
     mood: "Hungry" 
-    };
-
-const journalEntry3 = {
+  },
+  {
     date: "08/21/2019",
-    title: "Wednesday NoWay",
+    concept: "Wednesday NoWay",
     entry:"fsjdhfskdhfdskfhsdjkhfdskjhfdskjfhsdkfjshfdsjkfh",
     mood: "Tired" 
-    };
-
+  }
+];
 
 let journalCollections = [];
+const journalContainer = document.querySelector(".entryLog");
 
+// Create your own HTML structure for a journal entry
+const makeJournalEntryComponent = (journalEntry) => { 
+   return  `
+      <h2>${journalEntry.date}</h2>
+      <section>${journalEntry.concept}</section>
+      <section>${journalEntry.entry}</section>
+      <aside>${journalEntry.mood}</aside>
+    `;
+ 
+}
+const renderJournalEntries = (entries) => {
+  for (let i = 0; i < journalEntries.length; i++) {
+    const journalEntry = journalEntries[i];
+    journalContainer.innerHTML += makeJournalEntryComponent(journalEntry);   
+  }
+}
+
+renderJournalEntries(journalEntries)
+/*
 console.log(journalCollections.push(journalEntry, journalEntry2, journalEntry3));
-console.log(journalCollections);
+console.log(journalCollections);i
+*/
