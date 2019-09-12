@@ -13,37 +13,43 @@ API.getJournalEntries().then(renderEntries.renderJournalEntries(journalEntry));
 
 document.querySelector("#button").addEventListener("click", () => {
 
-    // Collected Form Field Values
-    const journalDate = document.querySelector("#journalDate").value;
-    const journalConcepts = document.querySelector("#journalConcepts").value;
-    const journalEntry = document.querySelector("#journalEntry").value;
-    const journalMood = document.querySelector("#journalMood").value;
+        // Collected Form Field Values
+        const journalDate = document.querySelector("#journalDate").value;
+        const journalConcepts = document.querySelector("#journalConcepts").value;
+        const journalEntry = document.querySelector("#journalEntry").value;
+        const journalMood = document.querySelector("#journalMood").value;
 
-    console.log(journalDate)
-    console.log(journalConcepts)
-    console.log(journalEntry)
-    console.log(journalMood)
-/*
-    function validateForm() {
-        const form = document.forms["myForm"]["concepts"]["message"]["mood"].value
-        if (form == "") {
-            alert("name must be filled out");
-            return false;
-        }
-    }
-*/
+        console.log(journalDate)
+        console.log(journalConcepts)
+        console.log(journalEntry)
+        console.log(journalMood)
+
+        const entryObject = newJournalEntry(journalDate, journalConcepts, journalEntry, journalMood)
+        console.log("My new journal pls", entryObject);
+
+        /* Validate Function *
+                function validateForm() {
+                    const form = document.forms["myForm"]["concepts"]["message"]["mood"].value
+                    if (form == "") {
+                        alert("name must be filled out");
+                        return false;
+                    }
+                }
+            */
+
+    })
     // Function makes journal objects
-    const newJournalEntry = (journalDate, journalConcepts, journalEntry, journalMood) => {
-        const newEntry = {
-            concept: journalDate,
-            date: journalConcepts,
-            entry: journalEntry,
-            mood: journalMood
-        }
-        return newEntry
+
+const newJournalEntry = (journalDate, journalConcepts, journalEntry, journalMood) => {
+    const newEntry = {
+        concept: journalDate,
+        date: journalConcepts,
+        entry: journalEntry,
+        mood: journalMood
     }
-    console.log("My new journal pls", newJournalEntry);
-})
+    return newEntry
+}
+
 
 /*
 // Use `fetch` with the POST method to add your entry to your API
