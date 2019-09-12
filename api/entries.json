@@ -1,0 +1,26 @@
+{
+  "entries": [
+    { 
+      "id": 1,
+      "concept": "Monday NoFunday",
+      "date": "08/19/2019",
+      "entry":"fsjdhfskdhfdskfhsdjkhfdskjhfdskjfhsdkfjshfdsjkfh",
+      "mood": "sad" 
+    }, 
+     {
+      "id": 2,
+      "concept": "Tuesday Chooseday",
+      "date": "08/20/2019",
+      "entry":"fsjdhfskdhfdskfhsdjkhfdskjhfdskjfhsdkfjshfdsjkfh",
+      "mood": "Hungry" 
+    },
+    {
+      "id": 3,
+      "concept": "Wednesday NoWay",
+      "date": "08/21/2019",
+      "entry":"fsjdhfskdhfdskfhsdjkhfdskjhfdskjfhsdkfjshfdsjkfh",
+      "mood": "Tired" 
+    }
+  ]
+
+}
