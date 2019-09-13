@@ -13,32 +13,37 @@ API.getJournalEntries().then(renderEntries.renderJournalEntries(journalEntry));
 
 document.querySelector("#button").addEventListener("click", () => {
 
-        // Collected Form Field Values
-        const journalDate = document.querySelector("#journalDate").value;
-        const journalConcepts = document.querySelector("#journalConcepts").value;
-        const journalEntry = document.querySelector("#journalEntry").value;
-        const journalMood = document.querySelector("#journalMood").value;
+    // Collected Form Field Values
+    const journalDate = document.querySelector("#journalDate").value;
+    const journalConcepts = document.querySelector("#journalConcepts").value;
+    const journalEntry = document.querySelector("#journalEntry").value;
+    const journalMood = document.querySelector("#journalMood").value;
 
-        console.log(journalDate)
-        console.log(journalConcepts)
-        console.log(journalEntry)
-        console.log(journalMood)
+    /* Need Validation From
+if (journalDate === "" || journalConcepts === "" || journalEntry === "" || journalMood === "") {
+                return alert("invalid code");
+            } else if (journalDate.includes("@", "$", "%", "^", "*") === true || journalConcepts.includes("@", "$", "%", "^", "*") === true || journalEntry.includes("@", "$", "%", "^", "*") === true || journalEntry.includes("@", "$", "%", "^", "*") === true) {
+                return alert("Super invalid code");
+            } else {
+                return "nothing"
+            }
+     */
+    //Build New Journal Object
+    const entryObject = newJournalEntry(journalDate, journalConcepts, journalEntry, journalMood)
 
-        const entryObject = newJournalEntry(journalDate, journalConcepts, journalEntry, journalMood)
-        console.log("My new journal pls", entryObject);
+    //Clear inputs
+    document.querySelector("#journalDate").value = "";
+    document.querySelector("#journalConcepts").value = "";
+    document.querySelector("#journalEntry").value = "";
+    document.querySelector("#journalMood").value = "";
 
-        /* Validate Function *
-                function validateForm() {
-                    const form = document.forms["myForm"]["concepts"]["message"]["mood"].value
-                    if (form == "") {
-                        alert("name must be filled out");
-                        return false;
-                    }
-                }
-            */
+    // Save object to JSON
+    API.saveJournalEntry(entryObject)
 
-    })
-    // Function makes journal objects
+    // Get All the Entries
+
+    //Send Entry to the DOM
+})
 
 const newJournalEntry = (journalDate, journalConcepts, journalEntry, journalMood) => {
     const newEntry = {
@@ -51,14 +56,7 @@ const newJournalEntry = (journalDate, journalConcepts, journalEntry, journalMood
 }
 
 
-/*
-// Use `fetch` with the POST method to add your entry to your API
-fetch("url", { http://localhost:3000
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newJournalEntry)
-})
+//In main module, invoke method to save entry, then add item to local array.
+API.saveJournalEntry()
 
-*/
+//Update DOM with updated array values.
