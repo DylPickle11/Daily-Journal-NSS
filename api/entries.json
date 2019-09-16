@@ -1,13 +1,6 @@
 {
   "entries": [
     {
-      "id": 1,
-      "concept": "Monday NoFunday",
-      "date": "08/19/2019",
-      "entry": "fsjdhfskdhfdskfhsdjkhfdskjhfdskjfhsdkfjshfdsjkfh",
-      "mood": "sad"
-    },
-    {
       "id": 2,
       "concept": "Tuesday Chooseday",
       "date": "08/20/2019",
@@ -16,9 +9,9 @@
     },
     {
       "concept": "2019-09-19",
-      "date": "asfsafa",
-      "entry": "asfasfasfaf",
-      "mood": "Excited",
+      "date": "sdfsdfsdf",
+      "entry": "fdsfsdfsdfsfdsfsdfdsfd",
+      "mood": "Blissful",
       "id": 3
     }
   ]

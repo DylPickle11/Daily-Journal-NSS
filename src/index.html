@@ -16,8 +16,9 @@
     <header class="header">
         <h1>Daily Journal</h1>
     </header>
+    <!--End Header Section-->
 
-    <!-- Date and Concept covered link-->
+    <!-- Entry Journal Input Form-->
     <form name="myForm" action="">
         <div class="date">
             <label for="journalDate">Date:</label>
@@ -28,6 +29,7 @@
             <label for="journalConcepts">Title:</label>
             <input type="text" name="concepts" id="journalConcepts">
         </div>
+
         <h2 class="journalEntry">Journal Entry</h2>
         <div class="form_journalEntry">
             <label for="journalEntry"></label>
@@ -37,40 +39,47 @@
         <div>
             <label class="mood" for="mood">Mood</label>
             <select class="mood" name="mood" id="journalMood">
-        <option value="Blissful">Blissful</option>
-        <option value="Cheerful">Cheerful</option>
-        <option value="Excited">Excited</option>
-        <option value="Mellow">Mellow</option>
-        <option value="Loving">Loving</option>
-        <option value="Energetic">Energetic</option>
-        <option value="Peaceful">Peaceful</option>
-        <option value="Silly">Silly</option>
-        <option value="Sympathetic">Sympathetic</option>
-        <option value="Angry">Angry</option>
-        <option value="Annoyed">Annoyed</option>
-        <option value="Apathetic">Apathetic</option>
-        <option value="Cranky">Cranky</option>
-        <option value="Guilty">Guilty</option>
-        <option value="Melancholy">Melancholy</option>
-        <option value="Rejected">Rejected</option>
-        <option value="Restless">Restless</option>
-        <option value="Sad">Sad</option>
-        <option value="Weird">Weird</option>
-      </select>
+              <option value="Blissful">Blissful</option>
+              <option value="Cheerful">Cheerful</option>
+              <option value="Excited">Excited</option>
+              <option value="Mellow">Mellow</option>
+              <option value="Loving">Loving</option>
+              <option value="Energetic">Energetic</option>
+              <option value="Peaceful">Peaceful</option>
+              <option value="Silly">Silly</option>
+              <option value="Sympathetic">Sympathetic</option>
+              <option value="Angry">Angry</option>
+              <option value="Annoyed">Annoyed</option>
+              <option value="Apathetic">Apathetic</option>
+              <option value="Cranky">Cranky</option>
+              <option value="Guilty">Guilty</option>
+              <option value="Melancholy">Melancholy</option>
+              <option value="Rejected">Rejected</option>
+              <option value="Restless">Restless</option>
+              <option value="Sad">Sad</option>
+              <option value="Weird">Weird</option>
+            </select>
         </div>
-
         <button class="button" type="button" name="button" id="button">Record Journal Entry</button>
-
     </form>
-    <div class="entry--Container">
-        <article id="entryLog" class="entryLog">
-        </article>
+    <!-- End Entry Journal Input Form-->
+
+    <!-- Past Journal Entry Container-->
+    <div class="entry--Container" id="pastEntries">
+        <article id="entryLog" class="entryLog"></article>
     </div>
+    <!-- End Past Journal Entry Container-->
+
+
+    <!-- Edit Journal Entry Container-->
     <div class="edit--Container">
         <form>
             <input type="hidden" id="entryId" value="">
+            <button id="saveEntry"></button>
         </form>
     </div>
+    <!-- End Edit Journal Entry Container-->
+
     <script type="module" src="scripts/main.js"></script>
 </body>
 

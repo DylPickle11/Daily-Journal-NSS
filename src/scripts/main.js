@@ -14,7 +14,6 @@ import editForm from "./editEntry.js"
 API.getJournalEntries().then((allEntries) => {
     allEntries.forEach(entry => {
         renderEntries.renderJournalEntries(entry)
-        console.log(entry)
     })
 })
 
@@ -50,7 +49,6 @@ if (journalDate === "" || journalConcepts === "" || journalEntry === "" || journ
     // Save object to JSON
     API.saveJournalEntry(entryObject)
 
-
     // Get All the Entries
     API.getJournalEntries().then((allEntries) => {
         allEntries.forEach(entry => {
@@ -62,12 +60,11 @@ if (journalDate === "" || journalConcepts === "" || journalEntry === "" || journ
 
 })
 
-/// Delete Entries & Edit Entries
+// Delete Entries & Edit Entries
 
 const entriesContainer = document.querySelector(".entry--Container").addEventListener("click", (event) => {
     if (event.target.id.startsWith("deleteEntry--")) {
         // Extract entry id from the button's id attribute
-        console.log(event, event.target.id.split("--")[1])
         document.querySelector(".entry--Container").innerHTML = "";
         API.deleteEntries(event.target.id.split("--")[1])
             .then(response => {
@@ -77,28 +74,29 @@ const entriesContainer = document.querySelector(".entry--Container").addEventLis
                     })
                 })
             })
-    } else if (event.target.id.startsWith("editEntries")) {
-        console.log("edit", event.target.id.split("--")[1])
+    } else if (event.target.id.startsWith("editEntry--")) {
         editForm(event.target.id.split("--")[1])
     }
 })
 
 //Save Entries
-
-document.querySelector(".edit--Container").addEventListener("click", (event) => {
+/*
+document.querySelector(".entry--Container").addEventListener("click", (event) => {
     API.editEntries(document.querySelector("#entryId").value)
         .then(response => {
-            console.log("response", response);
+            document.querySelector("#entryId").value = "";
+            document.querySelector(".edit--Container").innerHTML = "";
+
+
             /*
-    document.querySelector("#donutName").value = "";
-    document.querySelector("#donutResults").innerHTML = "";
     API.getDonuts().then((allDonuts) => {
         allDonuts.forEach(donut => {
             // 7. needs to send donut to DOM
             addDonutToDOM(donut)
-            
+    
 })
 })
+
+})
+}) 
 */
-        })
-})

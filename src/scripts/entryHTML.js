@@ -12,7 +12,7 @@ const makeJournal = (entries) => {
             Edit Entry
           </button>
        </div>
-     `
+       `
 }
 
-export default makeJournal;
+export default makeJournal

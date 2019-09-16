@@ -22,7 +22,7 @@ const API = {
     },
     editEntries: (id) => {
         const entryUpdateObject = {
-            name: document.querySelector("***").value
+            name: document.querySelector("#entryName").value
         }
         return fetch(`http://localhost:3000/entries/${id}`, {
             method: "PATCH",
@@ -33,7 +33,7 @@ const API = {
         }).then(response => response.json())
     },
     getSingle: (entryId) => {
-        return fetch(`http://localhost:3000/entries/${entryid}`)
+        return fetch(`http://localhost:3000/entries/${entryId}`)
             .then(response => response.json())
     }
 }
