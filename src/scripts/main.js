@@ -1,7 +1,7 @@
 import newJournalEntry from "./journal.js"
 import API from "./dataAPIs.js"
 import renderEntries from "./entriesDOM.js"
-import makeJournal from "./entryHTML.js"
+import entryBuilder from "./entryHTML.js"
 import editForm from "./editEntry.js"
 
 /*
@@ -75,7 +75,12 @@ const entriesContainer = document.querySelector(".entry--Container").addEventLis
                 })
             })
     } else if (event.target.id.startsWith("editEntry--")) {
-        editForm(event.target.id.split("--")[1])
+        document.querySelector(".edit--Container").innerHTML =
+            API.getSingle(event.target.id.split("--")[1])
+            .then(response => {
+                renderEntries.renderSingleEntry(response);
+            })
+
     }
 })
 

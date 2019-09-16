@@ -1,75 +1,87 @@
 * {
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-image: url(img/cat2.jpg);
-  background-size: 100%;
- }
+    background-image: url(img/cat2.jpg);
+    background-size: 100%;
+}
 
 header {
-  text-align: center;
-  margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  width: 80%;
-  margin: 0 auto;
-  background: antiquewhite;
-  opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+    margin: 0 auto;
+    background: antiquewhite;
+    opacity: 0.8;
 }
 
 .date {
-  margin-top: 2em;
-  font-size: 18px;
-  font-weight: bolder;
+    margin-top: 2em;
+    font-size: 18px;
+    font-weight: bolder;
 }
 
 .concept {
-  margin-top: 1em;
-  font-size: 18px;
-  font-weight: bolder;
+    margin-top: 1em;
+    font-size: 18px;
+    font-weight: bolder;
 }
 
 .journalEntry {
- text-align: center;
+    text-align: center;
 }
 
 .form_journalEntry {
-  display: flex; 
-  margin: 0 auto;
-  justify-content: center;
-  width: 90%;
-  
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    width: 90%;
 }
- textarea, input {
-  border-radius: 8px;  
-  text-decoration: none;
- }
 
-.mood { 
-  margin-top: 2em;
-  font-size: 16px;
+textarea,
+input {
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.mood {
+    margin-top: 2em;
+    font-size: 16px;
 }
 
 .button {
-  display: flex;
-  background-image: linear-gradient(to left top, #053710, #01601a, #008c22, #00ba27, #12eb29);
-  border-radius: 8px; 
-  color: black;
-  justify-content: center;
-  margin-top: 1em;
-  text-decoration: none;
-  font-size: 18px;
+    display: flex;
+    background-image: linear-gradient(to left top, #053710, #01601a, #008c22, #00ba27, #12eb29);
+    border-radius: 8px;
+    color: black;
+    justify-content: center;
+    margin-top: 1em;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 textarea:placeholder-shown {
-color: green;
-font-size: 20px;
+    color: green;
+    font-size: 20px;
+}
+
+
+/*
+.edit--Container {
+    display: none;
+}
+*/
+
+.visible {
+    display: visible;
 }
