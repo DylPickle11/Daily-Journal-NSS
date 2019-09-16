@@ -1,4 +1,19 @@
-import makeJournal from "./entryComponent.js";
+import makeJournal from "./entryHTML.js"
+
+/*
+    Responsible for putting entries on the DOM
+*/
+
+const renderEntries = {
+    renderJournalEntries: (entries) => {
+        document.querySelector(".entry--Container").innerHTML += makeJournal(entries);
+    }
+}
+
+
+
+
+/*import makeJournal from "./entryHTML.js/index.js";
 
 const renderEntries = {
     renderJournalEntries: (entries) => {
@@ -11,3 +26,7 @@ const renderEntries = {
 }
 
 export default renderEntries;
+
+*/
+
+export default renderEntries
