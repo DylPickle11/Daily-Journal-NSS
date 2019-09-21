@@ -2,14 +2,9 @@ import newJournalEntry from "./journal.js"
 import API from "./dataAPIs.js"
 import renderEntries from "./entriesDOM.js"
 import entryBuilder from "./entryHTML.js"
-import editForm from "./editEntry.js"
+//import editForm from "./editEntry.js"
 
-/*
-    Main application logic that uses the functions and objects
-    defined in the other JavaScript files.
-*/
-
-// This makes sure we have journal entries when the page loads!
+// Renders previous journal entries
 
 API.getJournalEntries().then((allEntries) => {
     allEntries.forEach(entry => {
@@ -17,48 +12,45 @@ API.getJournalEntries().then((allEntries) => {
     })
 })
 
-//Make event Listener 
+//Event Listener to save Journal Entry to JSON and Put on DOM
 
-document.querySelector("#button").addEventListener("click", () => {
+document.querySelector("#btnSaveJournal").addEventListener("click", () => {
 
     // Collected Form Field Values
-    const journalDate = document.querySelector("#journalDate").value;
-    const journalConcepts = document.querySelector("#journalConcepts").value;
-    const journalEntry = document.querySelector("#journalEntry").value;
-    const journalMood = document.querySelector("#journalMood").value;
+    const date = document.querySelector("#date").value;
+    const concepts = document.querySelector("#concepts").value;
+    const entry = document.querySelector("#entry").value;
+    const mood = document.querySelector("#mood").value;
 
-    /* Need Validation From
-if (journalDate === "" || journalConcepts === "" || journalEntry === "" || journalMood === "") {
-                return alert("invalid code");
-            } else if (journalDate.includes("@", "$", "%", "^", "*") === true || journalConcepts.includes("@", "$", "%", "^", "*") === true || journalEntry.includes("@", "$", "%", "^", "*") === true || journalEntry.includes("@", "$", "%", "^", "*") === true) {
-                return alert("Super invalid code");
-            } else {
-                return "nothing"
-            }
-     */
+    /* Input validation
+    const validCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,(){}:;-!?"
+    const validateInputString = (string) => {
+        return string.split('').filter(character => validCharacters.includes(character)).join('');
+    }
 
-    //Build New Journal Object
-    const entryObject = newJournalEntry(journalDate, journalConcepts, journalEntry, journalMood)
+    validateInputString(concepts);
+    validateInputString(entry);
+*/
+    if (date === "" || concepts === "" || entry === "" || mood === "") {
+        return alert("Nope to empty")
+    } else {
+        // Build New Journal Object
+        const entryObject = newJournalEntry(date, concepts, entry, mood)
 
-    //Clear inputs
-    document.querySelector("#journalDate").value = "";
-    document.querySelector("#journalConcepts").value = "";
-    document.querySelector("#journalEntry").value = "";
-    document.querySelector("#journalMood").value = "";
+        // Clear inputs
+        document.querySelector("#date").value = "";
+        document.querySelector("#concepts").value = "";
+        document.querySelector("#entry").value = "";
+        document.querySelector("#mood").value = "";
 
-    // Save object to JSON
-    API.saveJournalEntry(entryObject)
+        // Save object to JSON
+        API.saveJournalEntry(entryObject)
 
-    // Get All the Entries
-    API.getJournalEntries().then((allEntries) => {
-        allEntries.forEach(entry => {
-            renderEntries.renderJournalEntries(entry)
-        })
-    })
+        // Send Entry to the DOM
+        renderEntries.renderJournalEntries(entryObject)
+    }
+});
 
-    //Send Entry to the DOM
-
-})
 
 // Delete Entries & Edit Entries
 
@@ -66,7 +58,9 @@ const entriesContainer = document.querySelector(".entry--Container").addEventLis
     if (event.target.id.startsWith("deleteEntry--")) {
         // Extract entry id from the button's id attribute
         document.querySelector(".entry--Container").innerHTML = "";
+        // Calls method to delete specified entries 
         API.deleteEntries(event.target.id.split("--")[1])
+            // Get all entries and post
             .then(response => {
                 API.getJournalEntries().then((allEntries) => {
                     allEntries.forEach(entry => {
@@ -74,34 +68,23 @@ const entriesContainer = document.querySelector(".entry--Container").addEventLis
                     })
                 })
             })
-    } else if (event.target.id.startsWith("editEntry--")) {
-        document.querySelector(".edit--Container").innerHTML =
-            API.getSingle(event.target.id.split("--")[1])
+    } else if (event.target.id.startsWith("btnEditEntry--")) {
+        // Get specific entry
+        API.getSingle(event.target.id.split("--")[1])
             .then(response => {
-                renderEntries.renderSingleEntry(response);
+                entryBuilder.editJournal(response)
             })
-
     }
 })
 
-//Save Entries
-/*
+// Save Entry Button
+
+
 document.querySelector(".entry--Container").addEventListener("click", (event) => {
     API.editEntries(document.querySelector("#entryId").value)
         .then(response => {
             document.querySelector("#entryId").value = "";
             document.querySelector(".edit--Container").innerHTML = "";
 
-
-            /*
-    API.getDonuts().then((allDonuts) => {
-        allDonuts.forEach(donut => {
-            // 7. needs to send donut to DOM
-            addDonutToDOM(donut)
-    
+        })
 })
-})
-
-})
-}) 
-*/

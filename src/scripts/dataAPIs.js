@@ -1,9 +1,10 @@
 const API = {
+    // This method gets all entries from JSON
     getJournalEntries: () => {
         return fetch("http://localhost:3000/entries")
             .then(response => response.json())
     },
-    // Use `fetch` with the POST method to add your entry to your API
+    // Use `fetch` with the POST method to put entry in jSON
     saveJournalEntry: (entryObject) => {
         return fetch("http://localhost:3000/entries", {
                 method: "POST",
@@ -13,8 +14,8 @@ const API = {
                 body: JSON.stringify(entryObject)
             })
             .then(response => response.json())
-            .then(res => {})
     },
+    // Use `fetch` with the DELETE method to remove entry JSON
     deleteEntries: (id) => {
         return fetch(`http://localhost:3000/entries/${id}`, {
             method: "DELETE"
@@ -22,7 +23,7 @@ const API = {
     },
     editEntries: (id) => {
         const entryUpdateObject = {
-            name: document.querySelector("#entryName").value
+            name: document.querySelector(".entry--Container").value
         }
         return fetch(`http://localhost:3000/entries/${id}`, {
             method: "PATCH",

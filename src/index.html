@@ -22,23 +22,23 @@
     <form name="myForm" action="">
         <div class="date">
             <label for="journalDate">Date:</label>
-            <input type="date" name="journalDate" id="journalDate">
+            <input type="date" id="date">
         </div>
 
         <div class="concept">
             <label for="journalConcepts">Title:</label>
-            <input type="text" name="concepts" id="journalConcepts">
+            <input type="text" id="concepts">
         </div>
 
         <h2 class="journalEntry">Journal Entry</h2>
         <div class="form_journalEntry">
             <label for="journalEntry"></label>
-            <textarea placeholder="Tell me about your day..." name="message" id="journalEntry" rows="20" cols="80"></textarea>
+            <textarea placeholder="Tell me about your day..." id="entry" rows="20" cols="80"></textarea>
         </div>
 
         <div>
             <label class="mood" for="mood">Mood</label>
-            <select class="mood" name="mood" id="journalMood">
+            <select class="mood" id="mood">
               <option value="Blissful">Blissful</option>
               <option value="Cheerful">Cheerful</option>
               <option value="Excited">Excited</option>
@@ -60,19 +60,20 @@
               <option value="Weird">Weird</option>
             </select>
         </div>
-        <button class="button" type="button" name="button" id="button">Record Journal Entry</button>
+        <button id="btnSaveJournal" type="button" name="button" class="button">Record Journal Entry</button>
     </form>
     <!-- End Entry Journal Input Form-->
 
     <!-- Past Journal Entry Container-->
     <div class="entry--Container" id="pastEntries">
         <article id="entryLog" class="entryLog"></article>
+    </div>
+    <!-- End Past Journal Entry Container-->
 
-        <!-- End Past Journal Entry Container-->
-
-        <div class="edit--Container"></div>
+    <div class="edit--Container">
+        <input type="hidden" id="editEnt">
     </div>
     <script type="module" src="scripts/main.js"></script>
 </body>
 
-</html>s
+</html>
